@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Item Counter</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>JC - JSON Item Counter</h1>
+      <p>Paste your JSON below to count items, objects, arrays, and primitives.</p>
+    </header>
+
+    <main>
+      <div class="input-container">
+        <textarea id="jsonInput" placeholder="Paste your JSON here..."></textarea>
+      </div>
+
+      <div class="controls">
+        <button id="countBtn" type="button">Count Items</button>
+        <button id="clearBtn" type="button" class="secondary">Clear</button>
+      </div>
+
+      <div id="resultContainer" class="result-container hidden">
+        <div class="result-card">
+          <span class="result-label">
+            Top Level Items
+            <span class="info-icon" data-tooltip="Count of immediate keys/items in the root structure.">i</span>
+          </span>
+          <span id="topLevelCount" class="result-value">0</span>
+        </div>
+        <div class="result-details">
+          <div class="detail-item">
+            <span class="detail-label">
+              Total Nodes
+              <span class="info-icon"
+                data-tooltip="Recursive count of all values (objects, arrays, primitives) in the JSON.">i</span>
+            </span>
+            <span id="totalCount" class="detail-value">0</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">
+              Objects
+              <span class="info-icon" data-tooltip="Count of {} structures (excluding the root object).">i</span>
+            </span>
+            <span id="objectCount" class="detail-value">0</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">
+              Arrays
+              <span class="info-icon" data-tooltip="Count of [] structures.">i</span>
+            </span>
+            <span id="arrayCount" class="detail-value">0</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">
+              Primitives
+              <span class="info-icon" data-tooltip="Count of simple values (strings, numbers, booleans, null).">i</span>
+            </span>
+            <span id="primitiveCount" class="detail-value">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="errorContainer" class="error-container hidden">
+        <p id="errorMessage"></p>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
